@@ -1,0 +1,26 @@
+# MULTIPLE REGRESSION
+
+'''libraries'''
+import pandas as pd
+from sklearn import linear_model
+
+'''dataset'''
+df = pd.read_csv('cars.csv')
+df.head()
+
+'''split data into features and target data'''
+X = df[['Weight','Volume']]
+y = df['CO2']
+
+'''regress'''
+regr = linear_model.LinearRegression()
+regr.fit(X,y)
+
+'''predict, coefficients, predict'''
+prediction_1 = regr.predict([[2300,1300]])
+coefficients = regr.coef_
+prediction_2 = regr.predict([[3300,1300]])
+
+print(prediction_1)
+print(coefficients)
+print(prediction_2)
